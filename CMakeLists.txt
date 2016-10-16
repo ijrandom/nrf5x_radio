@@ -52,17 +52,12 @@ set(CMAKE_ASM_FLAGS "${PREPROCESSOR_FLAGS}")
 include_directories(
 #    ${PROJECT_SOURCE_DIR}
     ${NRF_TOOLCHAIN}
-#    ${NRF_SDK_ROOT}/examples/bsp
+    ${NRF_SDK}/examples/bsp
     ${NRF_TOOLCHAIN}/cmsis/include
     ${SDK_COMPONENTS}/device
-#    ${SDK_COMPONENTS}/drivers_nrf/hal
-#    ${SDK_COMPONENTS}/drivers_nrf/delay
-#    ${SDK_COMPONENTS}/drivers_nrf/radio_config
+    ${SDK_COMPONENTS}/drivers_nrf/hal
+    ${SDK_COMPONENTS}/drivers_nrf/delay
 #    ${SDK_COMPONENTS}/drivers_nrf/nrf_soc_nosd
-#    ${SDK_COMPONENTS}/libraries/timer
-#    ${SDK_COMPONENTS}/libraries/util
-#    ${SDK_COMPONENTS}/libraries/log
-#    ${SDK_COMPONENTS}/libraries/log/src
 )
 
 set(BOOT_SOURCE_FILES
@@ -103,11 +98,3 @@ foreach(executable ${executables})
     endforeach()
 endforeach()
 
-#add_executable(${MAIN_TARGET} ${SOURCE_FILES})
-
-#add_custom_command(
-#        TARGET ${MAIN_TARGET}
-#        COMMAND ${SIZE_COMMAND} ${MAIN_TARGET}
-#        COMMAND ${OBJCOPY_COMMAND} -O ihex ${MAIN_TARGET} ${PROJECT_NAME}.hex
-#        COMMAND ${OBJCOPY_COMMAND} -O binary ${MAIN_TARGET} ${PROJECT_NAME}.bin
-#)
